@@ -2,12 +2,12 @@
 
 Lead Developer - Joel Robinson
 
-Assistant Developers -
+Assistant Developers - Ashleigh Kennedy
 __________________________________________________________
 
 Lead Producer -
 
-Assistant Producers - Joel Robinson
+Assistant Producers - Joel Robinson, Ashleigh Kennedy
 __________________________________________________________
 
 Lead Level Designer -
@@ -15,7 +15,7 @@ Lead Level Designer -
 Assistant Level Designers - Joel Robinson
 __________________________________________________________
 
-Lead Artist (2D) -
+Lead Artist (2D) - Ashleigh Kennedy
 
 Assistant Artist (2D) - 
 __________________________________________________________
