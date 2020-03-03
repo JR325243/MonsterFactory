@@ -1,5 +1,7 @@
 # MonsterFactory
 
+Additional Materials: https://drive.google.com/drive/folders/1owgl0ehE77b643PyMQ01FBsbXPIp7u9R?usp=sharing
+
 Lead Developer - Joel Robinson
 
 Assistant Developers - Ashleigh Kennedy, George Belt
