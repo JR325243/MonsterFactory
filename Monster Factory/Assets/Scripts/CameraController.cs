@@ -8,8 +8,8 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
 
-    public float movespeed = 5;
-    public float edgeboarderthiccness = 10;
+    public float movespeed;
+    public float edgeboarderthiccness;
 
     public Vector3 limits;
 
@@ -27,12 +27,12 @@ public class CameraController : MonoBehaviour
             CameraPos.z -= movespeed * Time.deltaTime; 
         }
 
-        if (Input.GetKey("a") || Input.mousePosition.x <= Screen.width - edgeboarderthiccness)
+        if (Input.GetKey("a") || Input.mousePosition.x <= edgeboarderthiccness)
         {
             CameraPos.x -= movespeed * Time.deltaTime;
         }
 
-        if (Input.GetKey("d") || Input.mousePosition.x >= edgeboarderthiccness)
+        if (Input.GetKey("d") || Input.mousePosition.x >= Screen.width - edgeboarderthiccness)
         {
             CameraPos.x += movespeed * Time.deltaTime;
         }
