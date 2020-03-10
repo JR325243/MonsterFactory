@@ -13,11 +13,27 @@ public class MenuOpen : MonoBehaviour
 
         if(contractsOpen || labOpen || resOpen || raidsOpen) //if any of the panels are in the open position all of the buttons will move with it
         {
-            buttons.transform.localPosition = new Vector3(720f, 0f, 0f); //relocates the gameobject parenting the buttons
+            buttons.transform.localPosition = new Vector3(710f, 0f, 0f); //relocates the gameobject parenting the buttons
         }
         else
         {
             buttons.transform.localPosition = new Vector3(1200f, 0f, 0f); //moves the buttons to the edge of the screen
+        }
+
+        if (Input.GetKeyUp("1")){
+            Contracts();
+        }
+        if (Input.GetKeyUp("2"))
+        {
+            Lab();
+        }
+        if (Input.GetKeyUp("3"))
+        {
+            Res();
+        }
+        if (Input.GetKeyUp("4"))
+        {
+            Raids();
         }
     }
 
@@ -25,7 +41,7 @@ public class MenuOpen : MonoBehaviour
     {
         if (!contractsOpen) //if the panel isn't open this code will open it
         {
-            contracts.transform.localPosition = new Vector3(720f, 0f, 0f); //moving the panel into view
+            contracts.transform.localPosition = new Vector3(710f, 0f, 0f); //moving the panel into view
             contractsOpen = true; //flagging the panel as open so the button will close it when pressed again
 
             //this section of code closes and flags as closed all of the other panels so that only one is open at a time
@@ -48,7 +64,7 @@ public class MenuOpen : MonoBehaviour
 
         if (!labOpen)
         {
-            lab.transform.localPosition = new Vector3(720f, 0f, 0f);
+            lab.transform.localPosition = new Vector3(710f, 0f, 0f);
             labOpen = true;
 
             contracts.transform.localPosition = new Vector3(1200f, 0f, 0f);
@@ -69,7 +85,7 @@ public class MenuOpen : MonoBehaviour
     {
         if (!resOpen)
         {
-            resources.transform.localPosition = new Vector3(720f, 0f, 0f);
+            resources.transform.localPosition = new Vector3(710f, 0f, 0f);
             resOpen = true;
 
             contracts.transform.localPosition = new Vector3(1200f, 0f, 0f);
@@ -90,7 +106,7 @@ public class MenuOpen : MonoBehaviour
     {
         if (!raidsOpen)
         {
-            raids.transform.localPosition = new Vector3(720f, 0f, 0f);
+            raids.transform.localPosition = new Vector3(710f, 0f, 0f);
             raidsOpen = true;
 
             contracts.transform.localPosition = new Vector3(1200f, 0f, 0f);

@@ -4,18 +4,44 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour
 {
-    bool open = false;
-    public void PauseButton()
+    //[SerializeField]
+    public GameObject pauseMenu, optionsMenu;
+    bool pauseOpen = false, optionsOpen = false;
+
+    void Update()
     {
-        if (!open)
+        if (Input.GetKeyUp(KeyCode.Escape))
         {
-            gameObject.SetActive(true);
-            open = true;
+            Debug.Log("Y Pressed");
+            PauseButton();
+        }
+    }
+
+    public void OptionsButton()
+    {
+        if (!optionsOpen)
+        {
+            optionsMenu.transform.localPosition = new Vector3(0f, 0f, 0f); //moving the panel into view
+            optionsOpen = true;
         }
         else
         {
-            gameObject.SetActive(false);
-            open = false;
+            optionsMenu.transform.localPosition = new Vector3(0f, -1250f, 0f); //moving the panel into view
+            optionsOpen = false;
+        }
+    }
+
+    public void PauseButton()
+    {
+        if (!pauseOpen)
+        {
+            pauseMenu.transform.localPosition = new Vector3(0f, 0f, 0f); //moving the panel into view
+            pauseOpen = true;
+        }
+        else
+        {
+            pauseMenu.transform.localPosition = new Vector3(0f, -1250f, 0f); //moving the panel into view
+            pauseOpen = false;
         }
     }
 }
