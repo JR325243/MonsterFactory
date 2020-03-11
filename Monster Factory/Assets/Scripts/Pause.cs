@@ -4,44 +4,61 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour
 {
-    //[SerializeField]
-    public GameObject pauseMenu, optionsMenu;
+    
+    public GameObject menu, pause, options;
     bool pauseOpen = false, optionsOpen = false;
+
+    private void Start()
+    {
+        menu.transform.localScale = Vector3.zero;
+        pause.transform.localScale = Vector3.one;
+        options.transform.localScale = Vector3.zero;
+
+    }
 
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.Escape))
         {
-            Debug.Log("Y Pressed");
             PauseButton();
         }
     }
 
     public void OptionsButton()
     {
-        if (!optionsOpen)
-        {
-            optionsMenu.transform.localPosition = new Vector3(0f, 0f, 0f); //moving the panel into view
-            optionsOpen = true;
-        }
-        else
-        {
-            optionsMenu.transform.localPosition = new Vector3(0f, -1250f, 0f); //moving the panel into view
-            optionsOpen = false;
-        }
+        StartCoroutine(Wait());
     }
+
 
     public void PauseButton()
     {
         if (!pauseOpen)
         {
-            pauseMenu.transform.localPosition = new Vector3(0f, 0f, 0f); //moving the panel into view
+            LeanTween.scale(menu, Vector3.one, 1f).setEaseInOutQuint();
             pauseOpen = true;
         }
         else
         {
-            pauseMenu.transform.localPosition = new Vector3(0f, -1250f, 0f); //moving the panel into view
+            LeanTween.scale(menu, Vector3.zero, 1f).setEaseInOutQuint();
             pauseOpen = false;
+        }
+    }
+
+    IEnumerator Wait()
+    {
+        if (!optionsOpen)
+        {
+            LeanTween.scale(pause, Vector3.zero, 0.5f).setEaseInOutQuint();
+            yield return new WaitForSeconds(0.5f);
+            LeanTween.scale(options, Vector3.one, 0.5f).setEaseInOutQuint();
+            optionsOpen = true;
+        }
+        else
+        {
+            LeanTween.scale(options, Vector3.zero, 0.5f).setEaseInOutQuint();
+            yield return new WaitForSeconds(0.5f);
+            LeanTween.scale(pause, Vector3.one, 0.5f).setEaseInOutQuint();
+            optionsOpen = false;
         }
     }
 }
