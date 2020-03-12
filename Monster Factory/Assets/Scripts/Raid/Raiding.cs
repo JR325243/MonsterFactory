@@ -14,6 +14,8 @@ public class Raiding : MonoBehaviour
 
     private int settlementnumber;
 
+    public int strength = 50; //PLACEHOLDER, WILL BE CHANGED LATER TO ADD ABILITY TO INCREASE THIS
+
     public class settlement //class for a settlement
     {
         public string name;
@@ -26,12 +28,12 @@ public class Raiding : MonoBehaviour
 
     public settlement[] SettlementsArray; //delcare array for settlements info
 
-    public settlement burgville = new settlement();
+    public settlement burgville = new settlement(); //adding the settlement objects
     public settlement cityville = new settlement();
 
     void Start()
     {
-        SettlementsArray = new settlement[2];
+        SettlementsArray = new settlement[2]; //setting the size of the array
 
         burgville.name = "Burgville";
         burgville.population = 230;
@@ -39,32 +41,35 @@ public class Raiding : MonoBehaviour
         burgville.gold = 50;
         burgville.number = 1;
 
-        cityville.name = "Cityville";
+        cityville.name = "Cityville";   //adding values to the settlements
         cityville.population = 560;
         cityville.difficulty = 30;
         cityville.gold = 1000;
         cityville.number = 2;
 
         SettlementsArray[0] = burgville;
-        SettlementsArray[1] = cityville;
+        SettlementsArray[1] = cityville;  //setting the settlements into the array
     }
 
 
     void Update()
     {
-        string townname = EventSystem.current.currentSelectedGameObject.name;
-        print(townname);
-        int townnumber = Int32.Parse(townname);
-        print(townnumber);
+        string townname = EventSystem.current.currentSelectedGameObject.name;  //gets the name of the settlemennt that has been clicked on and puts it into a string
+        int townnumber = Int32.Parse(townname);  //turns the string name into an int so the script knows which one has been clicked on
 
         nametext.text = SettlementsArray[townnumber].name.ToString();
-        populationtext.text = SettlementsArray[townnumber].population.ToString();
+        populationtext.text = SettlementsArray[townnumber].population.ToString();   //print text to the popup box
         difficultytext.text = SettlementsArray[townnumber].difficulty.ToString();
     }
 
 
     public void townnamegetter()
     {
-        string townname = EventSystem.current.currentSelectedGameObject.name;
+        string townname = EventSystem.current.currentSelectedGameObject.name;   //runs when the button is clicked to find out which one was clicked
+    }
+
+    public void beginraid()  //when raid is clicked
+    {
+
     }
 }
