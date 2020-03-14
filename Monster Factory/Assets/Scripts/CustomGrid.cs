@@ -16,16 +16,21 @@ public class CustomGrid : MonoBehaviour
 
     private void Update()
     {
+        //if the mouse isn't over the right plane the placement location will default to this location (-1,-1,-1)
         mousePos = -Vector3.one;
 
+        //Ray sets a relative position in the world space from the on screen mouse position (I think?)
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
+        //when the ray intersects with the plane on the Click Check layer this code is executed
         if (Physics.Raycast(ray, out hit, 100f, clickMask))
         {
+            // defines the mouse position in world space
             mousePos = hit.point;
         }
 
+        //setting the position of the target object to the mouse / this could probably be bypassed but works fine
         target.transform.position = mousePos;
     }
 
