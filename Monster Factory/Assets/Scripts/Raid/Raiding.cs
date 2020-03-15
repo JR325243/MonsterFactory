@@ -11,6 +11,8 @@ public class Raiding : MonoBehaviour
     public Text populationtext;
     public Text difficultytext;
 
+    private int townnumberforraid;
+
 
     private int settlementnumber;
 
@@ -57,6 +59,10 @@ public class Raiding : MonoBehaviour
         string townname = EventSystem.current.currentSelectedGameObject.name;  //gets the name of the settlemennt that has been clicked on and puts it into a string
         int townnumber = Int32.Parse(townname);  //turns the string name into an int so the script knows which one has been clicked on
 
+        townnumberforraid = townnumber;
+
+
+
         nametext.text = SettlementsArray[townnumber].name.ToString();
         populationtext.text = SettlementsArray[townnumber].population.ToString();   //print text to the popup box
         difficultytext.text = SettlementsArray[townnumber].difficulty.ToString();
@@ -70,6 +76,16 @@ public class Raiding : MonoBehaviour
 
     public void beginraid()  //when raid is clicked
     {
+        if (strength > SettlementsArray[townnumberforraid].difficulty)
+        {
+            print("You won!");
+        }
 
+        else
+        {
+            print("You lost! - 5 strength");
+
+            strength -= 5;
+        }
     }
 }
