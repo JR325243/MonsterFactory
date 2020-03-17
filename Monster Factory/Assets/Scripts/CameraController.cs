@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour
 
     public float movespeed;
     public float edgeboarderthiccness;
+    public float scrollspeed = 20000;
 
     public Vector3 limits;
 
@@ -39,6 +40,9 @@ public class CameraController : MonoBehaviour
 
         CameraPos.x = Mathf.Clamp(CameraPos.x, -limits.x, limits.x);
         CameraPos.z = Mathf.Clamp(CameraPos.z, -limits.y, limits.y);
+
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        CameraPos.z += scroll * scrollspeed * Time.deltaTime; 
 
         transform.position = CameraPos; //set current position to updated position
     }
