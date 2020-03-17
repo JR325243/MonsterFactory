@@ -570,6 +570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movespeed: 20
   edgeboarderthiccness: 10
+  scrollspeed: 2
   limits: {x: 5, y: 5, z: 5}
 --- !u!81 &1100830351
 AudioListener:
@@ -630,7 +631,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1100830349}
   m_LocalRotation: {x: 0.18956165, y: -0.37454152, z: 0.078519, w: 0.9042233}
-  m_LocalPosition: {x: 9.72, y: 7.57, z: -9.29}
+  m_LocalPosition: {x: 6.9, y: 5.82, z: -6.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
